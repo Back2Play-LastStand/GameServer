@@ -1,0 +1,84 @@
+syntax = "proto3";
+package Protocol;
+
+import "Enum.proto";
+import "Struct.proto";
+
+message REQ_ENTER
+{
+	string name = 1;
+}
+
+message RES_ENTER
+{
+	ObjectInfo player = 1;
+	bool success = 2;
+}
+
+message REQ_ENTER_ROOM
+{
+	string name = 1;
+}
+
+message RES_ENTER_ROOM
+{
+	ObjectInfo player = 1;
+	bool success = 2;
+}
+
+message REQ_LEAVE
+{
+}
+
+message RES_LEAVE
+{
+	ObjectInfo object = 1;
+}
+
+message RES_SPAWN
+{
+	ObjectInfo player = 1;
+	bool mine = 2;
+}
+
+message RES_SPAWN_ALL
+{
+	repeated ObjectInfo players = 1;
+}
+
+message RES_DESPAWN
+{
+	repeated uint64 ids = 1;
+}
+
+message REQ_MOVE
+{
+	PositionInfo info = 1;
+}
+
+message RES_MOVE
+{
+	ObjectInfo player = 1;
+}
+
+message RES_SPAWN_MONSTER
+{
+	repeated ObjectInfo monsters = 1;
+}
+
+message RES_MOVE_MONSTER
+{
+	ObjectInfo monster = 1;
+}
+
+message REQ_ATTACK_OBJECT
+{
+	uint64 objectId = 1;
+	uint32 damage = 2;
+}
+
+message RES_ATTACK_OBJECT
+{
+	uint64 objectId = 1;
+	uint32 damage = 2;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+package Protocol;
+
+import "Enum.proto";
+
+message ObjectInfo
+{
+	uint64 objectId = 1;
+	string name = 2;
+	PositionInfo posInfo = 3;
+}
+
+message PositionInfo
+{
+	float posX = 1;
+	float posY = 2;
+	MoveDir moveDir = 3;
+}
