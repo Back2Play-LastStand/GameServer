@@ -81,4 +81,5 @@ message RES_ATTACK_OBJECT
 {
 	uint64 objectId = 1;
 	uint32 damage = 2;
+	uint32 remainHp = 3;
 }
