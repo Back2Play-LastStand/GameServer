@@ -7,7 +7,8 @@ message ObjectInfo
 {
 	uint64 objectId = 1;
 	string name = 2;
-	PositionInfo posInfo = 3;
+	uint32 health = 3;
+	PositionInfo posInfo = 4;
 }
 
 message PositionInfo
