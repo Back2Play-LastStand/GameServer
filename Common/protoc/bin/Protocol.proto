@@ -32,7 +32,13 @@ message REQ_LEAVE
 
 message RES_LEAVE
 {
-	ObjectInfo object = 1;
+	uint64 objectId = 1;
+}
+
+message REQ_RESPAWN
+{
+	uint64 objectId = 1;
+	string name = 2;
 }
 
 message RES_SPAWN
@@ -49,6 +55,18 @@ message RES_SPAWN_ALL
 message RES_DESPAWN
 {
 	repeated uint64 ids = 1;
+}
+
+message RES_CHANGE_HP
+{
+	uint64 objectId = 1;
+	uint32 hp = 2;
+}
+
+message RES_DIE
+{
+	uint64 objectId = 1;
+	uint64 attacker = 2;
 }
 
 message REQ_MOVE
