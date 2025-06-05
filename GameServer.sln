@@ -1,3 +1,4 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
@@ -9,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{9E4AD395-0AB4-40EB-82FF-BD1FDB17B5A4}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PacketGenerator", "Tools\PacketGenerator\PacketGenerator.pyproj", "{AA50F28E-6172-4C68-863F-8390F5C084FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginServer", "LoginServer\LoginServer.csproj", "{A490C18A-B691-480C-875F-BFB4F05D7EBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +53,18 @@ Global
 		{AA50F28E-6172-4C68-863F-8390F5C084FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA50F28E-6172-4C68-863F-8390F5C084FD}.Release|x64.ActiveCfg = Release|Any CPU
 		{AA50F28E-6172-4C68-863F-8390F5C084FD}.Release|x86.ActiveCfg = Release|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Debug|x64.Build.0 = Debug|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Debug|x86.Build.0 = Debug|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Release|x64.ActiveCfg = Release|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Release|x64.Build.0 = Release|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Release|x86.ActiveCfg = Release|Any CPU
+		{A490C18A-B691-480C-875F-BFB4F05D7EBB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
