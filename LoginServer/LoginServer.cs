@@ -15,29 +15,33 @@ class LoginServer
         {
             var context = listener.GetContext();
 
-            if (context.Request.RawUrl == "/login")
+            using (var stream = new StreamReader(context.Request.InputStream, context.Request.ContentEncoding))
             {
-                using (var stream = new StreamReader(context.Request.InputStream, context.Request.ContentEncoding))
+                string? line;
+                bool success = false;
+                while ((line = stream.ReadLine()) != null)
                 {
-                    string? line;
-                    bool success = false;
-                    while ((line = stream.ReadLine()) != null)
+                    string[] str = line.Split('&');
+                    string username = str[0];
+                    string password = str[1];
+                    if (context.Request.RawUrl == "/login")
                     {
-                        string[] str = line.Split('&');
-                        string username = str[0];
-                        string password = str[1];
                         success = CheckLogin(username, password);
                     }
-
-                    string responseString = success ? "success" : "fail";
-
-                    byte[] buffer = Encoding.UTF8.GetBytes(responseString);
-                    context.Response.ContentLength64 = buffer.Length;
-                    Stream output = context.Response.OutputStream;
-                    output.Write(buffer, 0, buffer.Length);
-
-                    output.Close();
+                    else if (context.Request.RawUrl == "/join")
+                    {
+                        success = JoinUser(username, password);
+                    }
                 }
+
+                string responseString = success ? "success" : "fail";
+
+                byte[] buffer = Encoding.UTF8.GetBytes(responseString);
+                context.Response.ContentLength64 = buffer.Length;
+                Stream output = context.Response.OutputStream;
+                output.Write(buffer, 0, buffer.Length);
+
+                output.Close();
             }
         }
 
@@ -78,6 +82,37 @@ class LoginServer
             }
             return false;
         }
+        bool JoinUser(string name, string pw)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connector))
+            {
+                try
+                {
+                    connection.Open();
 
+                    // 이미 존재하는 사용자 확인
+                    string checkSql = $"SELECT COUNT(*) FROM player WHERE player_name=@name";
+                    MySqlCommand checkCmd = new MySqlCommand(checkSql, connection);
+                    checkCmd.Parameters.AddWithValue("@name", name);
+                    long count = (long)checkCmd.ExecuteScalar();
+                    if (count > 0)
+                        return false;
+
+                    // 신규 사용자 삽입
+                    string sql = "INSERT INTO player (player_name, password) VALUES (@name, @pw)";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@pw", pw);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    return false;
+                }
+            }
+        }
     }
 }
