@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LoginServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32ba5522a39a4c367faff3224bbbd8e21a23128d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db48af1a27e7080dff39440a44b159d369665fad")]
 [assembly: System.Reflection.AssemblyProductAttribute("LoginServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LoginServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
