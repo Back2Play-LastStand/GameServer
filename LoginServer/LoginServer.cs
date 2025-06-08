@@ -8,7 +8,7 @@ class LoginServer
     {
         var listener = new HttpListener();
         var connector = "Server=localhost;Port=3306;Database=sunnight;Uid=root;Pwd=1234";
-        listener.Prefixes.Add("http://localhost:3333/");
+        listener.Prefixes.Add("http://localhost:6666/");
 
         listener.Start();
         while (true)
