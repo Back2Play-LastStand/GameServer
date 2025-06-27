@@ -15,6 +15,29 @@ message RES_ENTER
 	bool success = 2;
 }
 
+message REQ_ENTER_GAMEROOM
+{
+	string name = 1;
+	bool isCreate = 3;
+}
+
+message RES_ENTER_GAMEROOM
+{
+	uint32 memberCount = 1;
+	repeated ObjectInfo players = 2;
+}
+
+message REQ_LEAVE_GAMEROOM
+{
+	uint64 objectId = 1;
+}
+
+message RES_LEAVE_GAMEROOM
+{
+	string roomName = 1;
+	uint64 objectId = 2;
+}
+
 message REQ_ENTER_ROOM
 {
 	string name = 1;
